@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html class="htm" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NTI Task</title>
+    <link rel="stylesheet" href="main.css" />
+    <script
+      src="https://kit.fontawesome.com/431d566653.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <button class="active" data-hide="task-1">Task One</button>
+      <button data-hide="task-2">Task Two</button>
+      <button data-hide="task-3">Task Three</button>
+    </header>
+    <div class="container">
+      <section class="task-1">
+        <input type="password" placeholder="Your Password" />
+        <input type="button" value="Show Password" />
+      </section>
+      <section class="task-2">
+        <select name="country" id="cont">
+          <option selected disabled value="">Select country</option>
+          <option value="eg">Egypt</option>
+          <option value="ksa">Saudi Arabia</option>
+          <option value="usa">UNITED STATES</option>
+        </select>
+        <select name="city" id="cit">
+          <option selected disabled value="">Select City</option>
+        </select>
+      </section>
+      <section class="task-3">
+        <h1>Thanks</h1>
+        <p>
+          i would like to thank you for your time and effort and i wish for you
+          a great life and lots of happiness
+        </p>
+        <h1>
+          Eng Mahmoud Elzanklony
+          <i class="fa fa-heart" style="color: red"></i>
+        </h1>
+      </section>
+    </div>
+    <script>
+      ///
+      for (let btn of document.querySelectorAll("header button")) {
+        btn.onclick = function () {
+          for (let remove of document.querySelectorAll("header button")) {
+            remove.classList.remove("active");
+          }
+          for (let hide of document.querySelectorAll("section")) {
+            hide.style = "opacity:0 ;z-index: -99;";
+          }
+          document.querySelector("." + btn.getAttribute("data-hide")).style =
+            "opacity:1 ;z-index: 2;";
+          event.target.classList.add("active");
+        };
+      }
+      ////
+      let showBtn = document.querySelector(".task-1 input[type=button]");
+      let password = document.querySelector(".task-1 input:first-of-type");
+      showBtn.addEventListener("click", function () {
+        if (password.getAttribute("type") == "password") {
+          showBtn.value = "Hide Password";
+          password.type = "text";
+        } else {
+          showBtn.value = "Show Password";
+          password.type = "password";
+        }
+      });
+      ///
+      let city = {
+        eg: ["Alex", "Cairo", "Gizeh", "Assiut"],
+        usa: ["New York City", "Los Angeles", "	Chicago", "San Diego"],
+        ksa: ["Jeddah", "Riyadh", "Mecca", "Dammam"],
+      };
+      let country = document.getElementById("cont");
+
+      let ci = document.getElementById("cit");
+      country.addEventListener("change", function () {
+        let output = "<option value=''>Select City</option>";
+        if (country.value != "") {
+          for (let countryCities of city[country.value]) {
+            output +=
+              "<option value=" +
+              countryCities +
+              ">" +
+              countryCities +
+              "</option>";
+          }
+          ci.innerHTML = output;
+        }
+      });
+      // let city = document.getElementById("cit");
+      // country.onchange = function () {
+      //   city.value = "";
+      //   for (let i of document.querySelectorAll("#cit option")) {
+      //     i.style.display = "none";
+      //   }
+      //   for (let cit of document.querySelectorAll(
+      //     "option[country=" + country.value + "]"
+      //   )) {
+      //     cit.style.display = "block";
+      //   }
+      // };
+      // document.querySelector("#cit").innerHTML
+      // Object.keys(city)["0"]
+      // for (let btn of document.querySelectorAll("button")) {
+      //   btn.onclick = function () {
+      //     document
+      //       .getElementsByTagName("link")[1]
+      //       .setAttribute("href", btn.getAttribute("id") + ".css");
+      //   };
+      // }
+    </script>
+  </body>
+</html>
