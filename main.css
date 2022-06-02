@@ -67,7 +67,7 @@ section.task-3 {
   text-align: center;
   flex-direction: column;
 }
-input:focus {
+input:focus:focus-visible {
   outline: none !important;
 }
 @media (max-width: 768px) {
