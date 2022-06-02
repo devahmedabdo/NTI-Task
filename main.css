@@ -67,3 +67,12 @@ section.task-3 {
   text-align: center;
   flex-direction: column;
 }
+input:focus {
+  outline: none !important;
+}
+@media (max-width: 768px) {
+  header button,
+  .task-1 input:last-of-type {
+    cursor: default !important;
+  }
+}
