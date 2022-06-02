@@ -1,6 +1,7 @@
 body {
   margin: 0;
   text-transform: capitalize;
+  background-color: aliceblue;
 }
 header {
   padding: 10px;
@@ -16,8 +17,8 @@ header button,
   background-color: #33504e;
   padding: 10px;
   color: #9f9f9f;
-  cursor: pointer;
   transition: 0.5s;
+  cursor: pointer;
 }
 header button:hover,
 header button.active,
@@ -30,7 +31,6 @@ header button.active,
 }
 section {
   position: absolute;
-  background-color: aliceblue;
   top: 0;
   transition: 1s;
   width: 100%;
@@ -71,6 +71,7 @@ input:focus:focus-visible {
   outline: none !important;
 }
 @media (max-width: 768px) {
+  .task-1 input:not(:last-of-type),
   header button,
   .task-1 input:last-of-type {
     cursor: default !important;
